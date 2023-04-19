@@ -14,10 +14,10 @@
   </style>
 </head>
 <body>
-  <script src="https://cdn.jsdelivr.net/npm/three@0.131.1/build/three.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/three@0.131.1/examples/js/loaders/GLTFLoader.js"></script>
+  <script type="module">
+    import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.131.1/build/three.module.js';
+    import { GLTFLoader } from 'https://cdn.jsdelivr.net/npm/three@0.131.1/examples/jsm/loaders/GLTFLoader.js';
 
-  <script>
     const scene = new THREE.Scene();
 
     const camera = new THREE.PerspectiveCamera(
@@ -32,7 +32,7 @@
     renderer.setSize(window.innerWidth, window.innerHeight);
     document.body.appendChild(renderer.domElement);
 
-    const loader = new THREE.GLTFLoader();
+    const loader = new GLTFLoader();
 
     loader.load(
       'robot.glb',
