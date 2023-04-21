@@ -39,7 +39,7 @@ import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 				var light = new THREE.AmbientLight(0xffffff);
 				scene.add(light);
 
-				var loader = new THREE.GLTFLoader();
+				var loader = new GLTFLoader();
 				var url = 'https://raw.githubusercontent.com/qwddsefsfeef/qwee.github.io/main/robot.glb';
 				loader.load(url, function(gltf) {
 					 const mm=gltf.scene;
