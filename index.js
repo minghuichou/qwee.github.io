@@ -10,6 +10,7 @@ loader.load( './robot.glb', function ( gltf ) {
     const mm=gltf.scene;
     mm.scale.set(100, 100, 100); // 缩放模型
     mm.position.set(0, 0, 0); // 设置模型位置
+	 mm.rotation.x=Math.PI/4;
 	scene.add( mm );
 
 }, undefined, function ( error ) {
@@ -88,7 +89,7 @@ function render(){
     stats.update();//刷新时间
     mesh.rotation.x+=Math.PI/34;
 		mesh.rotateY(0.1);//改变位置，转起来
-	mm.rotateY(0.1);
+
         mesh.translateZ(1);
         renderer.render(scene,camera);//不断更新
     requestAnimationFrame(render);
