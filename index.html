@@ -1,16 +1,21 @@
-<!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="utf-8">
-		<title>Three.js - Robot model example</title>
-		<style>
-			body { margin: 0; }
-			canvas { width: 100%; height: 100%; }
-		</style>
 
-	</head>
-	<body>
-<script type="importmap">
+<!-- https://cdn.jsdelivr.net/npm/three@0.131.1/ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>three.js</title>
+	<style>
+		body{
+			overflow: hidden;
+			margin: 0px	;
+		}
+	</style>
+</head>
+<body>
+	<script type="importmap">
 		{
 			"imports":{
 				"three":"https://cdn.jsdelivr.net/npm/three@0.131.1/build/three.module.js",
@@ -18,45 +23,11 @@
 			}
 		}
 	</script>
-		<script type="module">
-			import * as THREE from 'three';
-//引入相机控件
-import{ OrbitControls } from 'three/addons/controls/OrbitControls.js';
-import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
-			
-			var scene, camera, renderer;
+<script src="./index.js" type="module"></script>
 
-			init();
-			animate();
 
-			function init() {
-				scene = new THREE.Scene();
-				camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-				renderer = new THREE.WebGLRenderer();
-				renderer.setSize(window.innerWidth, window.innerHeight);
-				document.body.appendChild(renderer.domElement);
 
-				var light = new THREE.AmbientLight(0xffffff);
-				scene.add(light);
 
-				var loader = new GLTFLoader();
-				var url = 'https://raw.githubusercontent.com/qwddsefsfeef/qwee.github.io/main/robot.glb';
-				loader.load(url, function(gltf) {
-					 const mm=gltf.scene;
-    mm.scale.set(100, 100, 100); // 缩放模型
-    mm.position.set(0, 0, 0); // 设置模型位置
-	scene.add( mm );
-				}, undefined, function(error) {
-					console.error(error);
-				});
-
-				camera.position.z = 5;
-			}
-
-			function animate() {
-				requestAnimationFrame(animate);
-				renderer.render(scene, camera);
-			}
-		</script>
-	</body>
+<!-- <div id="webgl" style="margin-top: 70px;margin-left: 70px;"></div> -->
+</body>
 </html>
