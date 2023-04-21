@@ -11,8 +11,22 @@
 		<script src="https://cdn.jsdelivr.net/npm/three@0.131.1/addons/loaders/GLTFLoader.js"></script>
 	</head>
 	<body>
-
+<script type="importmap">
+		{
+			"imports":{
+				"three":"https://cdn.jsdelivr.net/npm/three@0.131.1/build/three.module.js",
+				"three/addons/":"https://cdn.jsdelivr.net/npm/three@0.131.1/examples/jsm/"
+			}
+		}
+	</script>
 		<script>
+			import * as THREE from 'three';
+//引入相机控件
+import{ OrbitControls } from 'three/addons/controls/OrbitControls.js';
+import Stats from 'three/addons/libs/stats.module.js';
+import model from './model.js';
+import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+			
 			var scene, camera, renderer;
 
 			init();
@@ -31,7 +45,10 @@
 				var loader = new THREE.GLTFLoader();
 				var url = 'https://raw.githubusercontent.com/qwddsefsfeef/qwee.github.io/main/robot.glb';
 				loader.load(url, function(gltf) {
-					scene.add(gltf.scene);
+					 const mm=gltf.scene;
+    mm.scale.set(100, 100, 100); // 缩放模型
+    mm.position.set(0, 0, 0); // 设置模型位置
+	scene.add( mm );
 				}, undefined, function(error) {
 					console.error(error);
 				});
