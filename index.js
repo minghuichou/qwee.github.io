@@ -10,7 +10,7 @@ loader.load( './robot.glb', function ( gltf ) {
     const mm=gltf.scene;
     mm.scale.set(100, 100, 100); // 缩放模型
     mm.position.set(0, 0, 0); // 设置模型位置
-
+	 mm.rotation.x=-Math.PI/2;
 	scene.add( mm );
 
 }, undefined, function ( error ) {
