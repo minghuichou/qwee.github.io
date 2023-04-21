@@ -88,6 +88,7 @@ function render(){
     stats.update();//刷新时间
     mesh.rotation.x+=Math.PI/34;
 		mesh.rotateY(0.1);//改变位置，转起来
+	mm.rotateY(0.1);
         mesh.translateZ(1);
         renderer.render(scene,camera);//不断更新
     requestAnimationFrame(render);
