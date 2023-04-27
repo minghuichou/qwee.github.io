@@ -40,7 +40,7 @@ const mesh = new THREE.Mesh(geometry,material);
 //设置网格模型的位置
 mesh.position.set(10,10,0);
 //添加进场景中
-scene.add(mesh);
+//scene.add(mesh);
 
 //创建三维坐标轴
 const axesHelper = new THREE.AxesHelper(50);
